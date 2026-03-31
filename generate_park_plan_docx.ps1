@@ -73,17 +73,7 @@ function Convert-LineToParagraph {
 
 $root = $PSScriptRoot
 $outputDir = Join-Path $root "output"
-$tmpDir = Join-Path $root "tmp\park_plan_docx"
-$zipPath = Join-Path $outputDir "park_plan.zip"
 $docxPath = Join-Path $outputDir "park_plan.docx"
-
-if (Test-Path $tmpDir) {
-    Remove-Item -LiteralPath $tmpDir -Recurse -Force
-}
-
-New-Item -ItemType Directory -Path $tmpDir | Out-Null
-New-Item -ItemType Directory -Path (Join-Path $tmpDir "_rels") | Out-Null
-New-Item -ItemType Directory -Path (Join-Path $tmpDir "word") | Out-Null
 New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 
 $sourceFile = Get-ChildItem -Path $root -Filter "*.txt" | Sort-Object Name | Select-Object -First 1
@@ -151,22 +141,28 @@ $relsXml = @"
 </Relationships>
 "@
 
-$contentTypesPath = Join-Path $tmpDir '[Content_Types].xml'
-$relsPath = Join-Path $tmpDir '_rels\.rels'
-$documentPath = Join-Path $tmpDir 'word\document.xml'
-
-[System.IO.File]::WriteAllText($contentTypesPath, $contentTypesXml, [System.Text.UTF8Encoding]::new($false))
-[System.IO.File]::WriteAllText($relsPath, $relsXml, [System.Text.UTF8Encoding]::new($false))
-[System.IO.File]::WriteAllText($documentPath, $documentXml, [System.Text.UTF8Encoding]::new($false))
-
-if (Test-Path $zipPath) {
-    Remove-Item -LiteralPath $zipPath -Force
-}
 if (Test-Path $docxPath) {
     Remove-Item -LiteralPath $docxPath -Force
 }
 
-Compress-Archive -Path (Join-Path $tmpDir "*") -DestinationPath $zipPath -Force
-Move-Item -LiteralPath $zipPath -Destination $docxPath -Force
+Add-Type -AssemblyName WindowsBase
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+$package = [System.IO.Packaging.Package]::Open($docxPath, [System.IO.FileMode]::Create)
+try {
+    $documentUri = New-Object System.Uri('/word/document.xml', [System.UriKind]::Relative)
+    $documentPart = $package.CreatePart($documentUri, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml', [System.IO.Packaging.CompressionOption]::Maximum)
+    $writer = New-Object System.IO.StreamWriter($documentPart.GetStream(), $utf8NoBom)
+    try {
+        $writer.Write($documentXml)
+    }
+    finally {
+        $writer.Dispose()
+    }
+
+    $package.CreateRelationship($documentUri, [System.IO.Packaging.TargetMode]::Internal, 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument') | Out-Null
+}
+finally {
+    $package.Close()
+}
 
 Write-Output $docxPath
