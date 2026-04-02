@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1Q 조직문화 브리핑 기획 초안</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-color: #ef5030;
+            --dark-grey: #2d3436;
+            --light-grey: #f1f2f6;
+            --white: #ffffff;
+            --accent-soft: #fff1f0;
+            --text-muted: #6c757d;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin: 0;
+            padding: 50px 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .slide {
+            width: 1280px;
+            height: 720px;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 80px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--brand-color);
+        }
+
+        .intent-tag {
+            position: absolute;
+            top: 30px;
+            right: 80px;
+            background-color: var(--accent-soft);
+            color: var(--brand-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid var(--brand-color);
+        }
+
+        h1, h2, h3 { margin: 0; color: var(--dark-grey); }
+
+        .title-slide {
+            text-align: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .title-slide h1 {
+            font-size: 72px;
+            color: var(--brand-color);
+            margin-bottom: 20px;
+        }
+
+        .title-slide p {
+            font-size: 28px;
+            color: var(--text-muted);
+        }
+
+        .slide-header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--light-grey);
+            padding-bottom: 20px;
+        }
+
+        .slide-header h2 {
+            font-size: 38px;
+            color: var(--brand-color);
+        }
+
+        .slide-header p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        .content-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light-grey);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--brand-color);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4b4b4b;
+        }
+
+        .focus-box {
+            background-color: var(--accent-soft);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px dashed var(--brand-color);
+            text-align: center;
+        }
+
+        .agenda-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .agenda-list li {
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .agenda-list li .time {
+            background: var(--brand-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            margin-right: 20px;
+            font-size: 16px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        body.single {
+            background: #ffffff;
+            padding: 0;
+            gap: 0;
+        }
+
+        body.single .slide {
+            margin: 0;
+            box-shadow: none;
+        }
+
+        body.single .slide:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide">
+    <div class="title-slide">
+        <p style="font-weight: 700; color: var(--brand-color); margin-bottom: 10px;">[기획 초안]</p>
+        <h1>1Q 조직문화 브리핑</h1>
+        <p>4월 전사 나들이 이벤트 세션 운영 계획</p>
+        <div style="margin-top: 50px; font-size: 20px; border-top: 1px solid #ddd; padding-top: 20px; display: inline-block;">
+            아이포트폴리오 피플팀 / 조직문화 담당
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">기획 배경</div>
+    <div class="slide-header">
+        <h2>왜 이 시간을 가져야 하는가?</h2>
+        <p>브리핑 세션의 핵심 목적 및 지향점</p>
+    </div>
+    <div class="content-body">
+        <div class="grid-2">
+            <div class="card">
+                <h3>1. 성과의 가시화</h3>
+                <p>1분기 동안 진행된 다양한 활동들이 단발성 이벤트로 끝나지 않고, 조직의 '성장 기록'으로 남을 수 있도록 전사에 공식적으로 공유합니다.</p>
+            </div>
+            <div class="card">
+                <h3>2. 핵심 가치 리마인드</h3>
+                <p>아이포트폴리오의 고유 문화인 '학습(Booktalk, Dev Ocean)'과 '소통(삼삼오오, Sync Hall)'의 의미를 다시 한번 되새깁니다.</p>
+            </div>
+            <div class="card">
+                <h3>3. 정서적 유대감 강화</h3>
+                <p>전사 나들이라는 캐주얼한 장소에서 가볍게 즐기되, 서로의 성장을 박수 쳐주는 자부심(Pride) 고취의 시간으로 활용합니다.</p>
+            </div>
+            <div class="card">
+                <h3>4. 도서 문화의 확장</h3>
+                <p>고도화된 시스템과 추천 도서를 통해 2분기에도 '읽는 조직'으로서의 정체성을 강화하도록 독려합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">세션 구성</div>
+    <div class="slide-header">
+        <h2>세션 아젠다 및 타임라인</h2>
+        <p>나들이 분위기를 고려한 '강약 조절' 중심의 구성</p>
+    </div>
+    <div class="content-body">
+        <ul class="agenda-list">
+            <li><span class="time">3 min</span> Part 1. 1Q Snapshot (Quick Recap) - 가볍게 훑기</li>
+            <li style="border: 2px solid var(--brand-color);"><span class="time">10 min</span> Part 2. Deep Dive: 성장 공유 (북토크 & 데브 오션) - 핵심 집중</li>
+            <li><span class="time">5 min</span> Part 3. Book Identity & Future - 시스템 안내 및 2Q 예고</li>
+        </ul>
+        <p style="margin-top: 20px; color: var(--brand-color); font-weight: 700;">※ 총 20분 내외 진행으로 구성원 피로도 최소화</p>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">기획 의도: Lite Recap</div>
+    <div class="slide-header">
+        <h2>Part 1. 1Q Snapshot 운영 전략</h2>
+        <p>해커톤, 삼삼오오, 싱크홀 - "우리는 이런 즐거운 추억을 쌓았습니다"</p>
+    </div>
+    <div class="content-body">
+        <div class="grid-2">
+            <div>
+                <h3>발표 방식</h3>
+                <p style="font-size: 20px;">- 텍스트 최소화, 전면 사진 중심의 슬라이드 구성<br>
+                - 담당자가 1분 내외로 핵심 키워드만 언급하며 빠르게 전환<br>
+                - 현장의 에너지와 열기를 리마인드 하는 데 집중</p>
+            </div>
+            <div class="focus-box">
+                <h3 style="color: var(--brand-color);">핵심 키워드</h3>
+                <p>#몰입(해커톤) #연결(삼삼오오) #방향(싱크홀)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">기획 의도: Deep Dive</div>
+    <div class="slide-header">
+        <h2>Part 2-1. 팀별 북토크 운영 전략</h2>
+        <p>단순 독서 모임을 넘어 '팀의 변화'를 끌어낸 사례 공유</p>
+    </div>
+    <div class="content-body">
+        <div class="grid-3">
+            <div class="card">
+                <h3>무엇을 공유하나?</h3>
+                <p>가장 활발하거나 독특한 방식으로 진행한 1~2개 팀의 사례를 구체적으로 소개 (인사이트 중심)</p>
+            </div>
+            <div class="card">
+                <h3>왜 중요한가?</h3>
+                <p>"남들은 어떻게 읽나?"에 대한 궁금증 해소 및 타 팀의 좋은 방식을 벤치마킹할 기회 제공</p>
+            </div>
+            <div class="card">
+                <h3>기대 효과</h3>
+                <p>북토크가 '숙제'가 아닌 '성장의 도구'임을 전사가 체감하게 함</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">기획 의도: Deep Dive</div>
+    <div class="slide-header">
+        <h2>Part 2-2. Dev Ocean 세미나 운영 전략</h2>
+        <p>기술 공유 문화의 자부심 - "동료가 나의 가장 좋은 스승이다"</p>
+    </div>
+    <div class="content-body">
+        <div class="focus-box" style="text-align: left; margin-bottom: 30px;">
+            <h3 style="color: var(--brand-color); margin-bottom: 10px;">전달 메시지</h3>
+            <p style="font-size: 22px;">"우리 개발팀은 이렇게 치열하게 고민하고 서로의 지식을 나누며 제품을 만듭니다."</p>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>비개발직군 배려</h3>
+                <p>너무 기술적인 디테일보다는, 세미나를 통해 해결한 '문제'와 그 '가치'에 집중하여 설명</p>
+            </div>
+            <div class="card">
+                <h3>브랜딩 효과</h3>
+                <p>자발적 학습 공동체로서의 이미지를 구축하여 채용 브랜딩 및 내부 로열티 강화</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">기획 의도: Identity</div>
+    <div class="slide-header">
+        <h2>Part 3. Book Identity & Future</h2>
+        <p>시스템 고도화 보고 및 데이터 기반의 독서 독려</p>
+    </div>
+    <div class="content-body">
+        <div class="grid-2">
+            <div class="card">
+                <h3>시스템 고도화(UX)</h3>
+                <p>- 실시간 대여 현황 및 알림톡 기능 시연<br>
+                - "더 편하게 읽을 수 있는 환경"이 구축되었음을 강조</p>
+            </div>
+            <div class="card">
+                <h3>1Q 추천 도서(Data)</h3>
+                <p>- 1분기 최다 대여 도서 TOP 3 공개<br>
+                - 동료들의 생생한 한 줄 평 공유로 '읽고 싶은 욕구' 자극</p>
+            </div>
+        </div>
+        <div style="margin-top: 40px; text-align: center; color: var(--brand-color); font-weight: 700; font-size: 24px;">
+            "2분기에도 아이포트폴리오는 계속 읽고 성장합니다."
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="intent-tag">실행 가이드</div>
+    <div class="slide-header">
+        <h2>담당자 준비 사항 및 가이드</h2>
+        <p>성공적인 브리핑 세션을 위한 협조 요청</p>
+    </div>
+    <div class="content-body">
+        <div class="card" style="background: white;">
+            <ul style="font-size: 20px;">
+                <li style="margin-bottom: 15px;"><strong>공통:</strong> 발표용 고화질 사진 최소 5장 이상 피플팀 전달 (~4/20)</li>
+                <li style="margin-bottom: 15px;"><strong>북토크/데브오션 담당:</strong> 가장 공유하고 싶은 핵심 인사이트 1가지를 문장형으로 작성</li>
+                <li style="margin-bottom: 15px;"><strong>도서 시스템 담당:</strong> 시연용 화면 캡처 및 2분기 신규 입고 도서 리스트 준비</li>
+                <li><strong>현장 분위기:</strong> 나들이 장소의 오디오/스크린 환경 사전 체크 필수</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">iPORTFOLIO | Organization Culture Team | 1Q Planning Draft</div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const slideParam = params.get('slide');
+    if (slideParam) {
+        const index = Number(slideParam) - 1;
+        document.body.classList.add('single');
+        document.querySelectorAll('.slide').forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+</script>
+</body>
+</html>
